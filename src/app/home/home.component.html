@@ -1,3 +1,5 @@
-<p>home works!</p>
-<h1>Welcome, {{ userSignal()?.displayName }}</h1>
-<button (click)="signOut()">log out</button>
+<div>
+  <h1>Welcome to Seawatch, {{ userSignal()?.displayName }}!</h1>
+  <p>{{ getGreetingMessage() }}</p>
+  <button (click)="signOut()">Log Out</button>
+</div>
