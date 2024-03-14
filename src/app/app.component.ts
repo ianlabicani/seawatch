@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit, inject } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
+import { Auth } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 
 @Component({
@@ -9,9 +10,18 @@ import { environment } from '../environments/environment';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  auth = inject(Auth);
+  router = inject(Router);
+
   title = 'seawatch';
-  constructor() {
+
+  ngOnInit(): void {
+    this.auth.onAuthStateChanged((user) => {
+      if (!user) {
+        this.router.navigate(['/login']);
+      }
+    });
     console.log(environment.production);
   }
 }

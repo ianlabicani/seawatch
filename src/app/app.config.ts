@@ -9,7 +9,7 @@ import {
   getFirestore,
   provideFirestore,
 } from '@angular/fire/firestore';
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environment.development';
 
 export const appConfig: ApplicationConfig = {
   providers: [
