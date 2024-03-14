@@ -12,6 +12,6 @@ import { environment } from '../environments/environment';
 export class AppComponent {
   title = 'seawatch';
   constructor() {
-    console.log(environment.useEmulators);
+    console.log(environment.production);
   }
 }

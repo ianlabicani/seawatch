@@ -20,8 +20,8 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(
       provideAuth(() => {
         const auth = getAuth();
-        if (environment.useEmulators) {
-          connectAuthEmulator(auth, 'http://localhost:9099', {
+        if (!environment.production) {
+          connectAuthEmulator(auth, 'http://127.0.0.1:9099', {
             disableWarnings: true,
           });
         }
@@ -31,7 +31,7 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(
       provideFirestore(() => {
         const firestore = getFirestore();
-        if (environment.useEmulators) {
+        if (!environment.production) {
           connectFirestoreEmulator(firestore, 'localhost', 8080);
         }
         return firestore;
