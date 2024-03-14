@@ -2,7 +2,7 @@
 
 <div>
   <h2>Register</h2>
-  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
     <div>
       <label for="username">Username:</label>
       <input type="text" id="username" formControlName="username" />
@@ -42,6 +42,25 @@
         *ngIf="
           registerForm.get('password')?.hasError(validation.type) &&
           registerForm.get('password')?.touched
+        "
+      >
+        <small>{{ validation.message }}</small>
+      </div>
+      }
+    </div>
+    <div>
+      <label for="confirmPassword">Confirm Password:</label>
+      <input
+        type="confirmPassword"
+        id="confirmPassword"
+        formControlName="confirmPassword"
+      />
+      @for (validation of validationMessages['confirmPassword']; track $index) {
+
+      <div
+        *ngIf="
+          registerForm.get('confirmPassword')?.hasError(validation.type) &&
+          registerForm.get('confirmPassword')?.touched
         "
       >
         <small>{{ validation.message }}</small>
