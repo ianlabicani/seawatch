@@ -49,7 +49,7 @@
               "sourceMap": true,
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.prod.ts",
+                  "replace": "src/environments/environment.environment.ts",
                   "with": "src/environments/environment.ts"
                 }
               ]
