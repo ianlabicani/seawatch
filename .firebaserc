@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "capstone-63f36": {
+      "hosting": {
+        "seawatch": [
+          "capstone-63f36"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "capstone-63f36"
+  }
+}
