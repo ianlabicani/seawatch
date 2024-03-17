@@ -22,6 +22,5 @@ export class AppComponent implements OnInit {
         this.router.navigate(['/login']);
       }
     });
-    console.log(environment.production);
   }
 }
