@@ -4,32 +4,30 @@
     <div>
       <label for="email">Email:</label>
       <input type="email" id="email" formControlName="email" />
-      @for (validation of validationMessages['email']; track $index) {
-
-      <div
-        *ngIf="
-          loginForm.get('email')?.hasError(validation.type) &&
-          loginForm.get('email')?.touched
-        "
-      >
-        <small>{{ validation.message }}</small>
-      </div>
-      }
+      <ng-container *ngFor="let validation of validationMessages['email']">
+        <div
+          *ngIf="
+            loginForm.get('email')?.hasError(validation.type) &&
+            loginForm.get('email')?.touched
+          "
+        >
+          <small>{{ validation.message }}</small>
+        </div>
+      </ng-container>
     </div>
     <div>
       <label for="password">Password:</label>
       <input type="password" id="password" formControlName="password" />
-      @for (validation of validationMessages['password']; track $index) {
-
-      <div
-        *ngIf="
-          loginForm.get('password')?.hasError(validation.type) &&
-          loginForm.get('password')?.touched
-        "
-      >
-        <small>{{ validation.message }}</small>
-      </div>
-      }
+      <ng-container *ngfor="let validation of validationMessages['password']">
+        <div
+          *ngIf="
+            loginForm.get('password')?.hasError(validation.type) &&
+            loginForm.get('password')?.touched
+          "
+        >
+          <small>{{ validation.message }}</small>
+        </div>
+      </ng-container>
     </div>
     <button type="submit" [disabled]="loginForm.invalid">Register</button>
   </form>
